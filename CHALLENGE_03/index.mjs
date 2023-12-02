@@ -1,17 +1,14 @@
 import { readFile } from "fs";
 
 readFile("encryption_policies.txt", "utf8", (err, data) => {
-  if (err) {
-    console.error(err);
-  } else {
-    const parsedData = parseDocument(data);
-    const results = parsedData.map(([minmax, letter, string]) =>
-      validateKey(minmax, letter, string)
-    );
-    const answers = results.filter(({ valid }) => !valid);
-    console.log(answers[41]);
-    console.log(answers[12]);
-  }
+  if (err) return console.error(err);
+  const parsedData = parseDocument(data);
+  const results = parsedData.map(([minmax, letter, string]) =>
+    validateKey(minmax, letter, string)
+  );
+  const answers = results.filter(({ valid }) => !valid);
+  console.log(answers[41]);
+  console.log(answers[12]);
 });
 
 function parseDocument(text = "") {

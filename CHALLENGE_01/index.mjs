@@ -11,9 +11,6 @@ function getWordCount(input) {
 }
 
 readFile("CHALLENGE_01/message_01.txt", "utf8", (err, data) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(getWordCount(data));
-  }
+  if (err) return console.error(err);
+  console.log(getWordCount(data));
 });

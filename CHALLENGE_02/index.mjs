@@ -19,9 +19,6 @@ function compiler(stringInput) {
 }
 
 readFile("CHALLENGE_02/message_02.txt", "utf8", (err, data) => {
-  if (err) {
-    console.error(err);
-  } else {
-    console.log(compiler(data));
-  }
+  if (err) return console.error(err);
+  console.log(compiler(data));
 });
